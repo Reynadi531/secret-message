@@ -2,10 +2,11 @@ import { FC, useState } from 'react'
 import { Box, Textarea, Text, Button, VStack } from '@chakra-ui/react'
 import { SubmitPost } from '../libs/fetchData'
 
-const SubmitForm: FC = () => {
+const SubmitForm: FC<{ refresher: any }> = ({ refresher }) => {
   const [msg, setMsg] = useState('')
   const SubmitFunc = async () => {
     const data = await SubmitPost(msg)
+    refresher()
     return data != null ? setMsg('') : ''
   }
 

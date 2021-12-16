@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 import {
   Container,
   Text,
@@ -16,7 +16,13 @@ import Fetcher from './libs/fetchData'
 const App: FC = () => {
   const [data, setData] = useState<any[]>()
   const bgText = useColorModeValue('gray.50', 'gray.700')
-  Fetcher().then((x: any) => setData(x))
+    useEffect(() => {
+      refreshData()
+    }, [])
+
+  const refreshData = () => {
+      Fetcher().then((x: any) => setData(x))
+  }
 
   return (
     <>
@@ -36,7 +42,7 @@ const App: FC = () => {
           Tell something you always want to say
         </Text>
 
-        <SubmitForm />
+        <SubmitForm refresher={refreshData} />
         <Divider orientation="horizontal" w="full" my="8" />
 
         <Stack spacing="6" direction="column-reverse">

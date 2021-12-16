@@ -16,12 +16,12 @@ import Fetcher from './libs/fetchData'
 const App: FC = () => {
   const [data, setData] = useState<any[]>()
   const bgText = useColorModeValue('gray.50', 'gray.700')
-    useEffect(() => {
-      refreshData()
-    }, [])
+  useEffect(() => {
+    refreshData()
+  }, [])
 
   const refreshData = () => {
-      Fetcher().then((x: any) => setData(x))
+    Fetcher().then((x: any) => setData(x))
   }
 
   return (

@@ -59,7 +59,7 @@ const App: FC = () => {
           )}
         </Stack>
         <Center my="4">
-          <Text textAlign="center">
+          <Text textAlign="center" fontSize="xs">
             Made with ❤️ by Rey.
             <br />
             @2021 Rey. Source code{' '}

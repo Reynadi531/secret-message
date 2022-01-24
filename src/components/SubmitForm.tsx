@@ -5,6 +5,7 @@ import { SubmitPost } from '../libs/fetchData'
 const SubmitForm: FC<{ refresher: any }> = ({ refresher }) => {
   const [msg, setMsg] = useState('')
   const SubmitFunc = async () => {
+    if (String(msg).length == 0) return
     const data = await SubmitPost(msg)
     refresher()
     return data != null ? setMsg('') : ''

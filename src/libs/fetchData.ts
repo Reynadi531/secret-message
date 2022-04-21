@@ -6,7 +6,13 @@ const supabase: SupabaseClient = createClient(
 )
 
 const Fether = async () => {
-  const { data, error } = await supabase.from('secret_message').select()
+  const { data, error } = await supabase
+    .from('confess')
+    .select()
+    .order('created_at', {
+      ascending: true
+    })
+
   if (error) {
     console.log(error)
   }

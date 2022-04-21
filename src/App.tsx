@@ -45,7 +45,7 @@ const App: FC = () => {
         <SubmitForm refresher={refreshData} />
         <Divider orientation="horizontal" w="full" my="8" />
 
-        <Stack spacing="6" direction="column-reverse">
+        <Stack spacing="6" direction="column">
           {data ? (
             data.map(x => (
               <Card
